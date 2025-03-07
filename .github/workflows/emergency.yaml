@@ -2,8 +2,6 @@ name: Emergency review bypass
 
 on:
   pull_request_target:
-    types:
-      - labeled
 
 permissions:
   pull-requests: write
