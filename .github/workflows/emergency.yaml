@@ -9,5 +9,5 @@ jobs:
   approve:
     name: Approve
     if: github.event.label.name == 'emergency'
-    uses: ./.github/workflows/actions/emergency-action.yaml
+    uses: ./.github/workflows/actions/emergency-action
     secrets: inherit
