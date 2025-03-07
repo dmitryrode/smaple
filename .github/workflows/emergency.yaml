@@ -1,7 +1,7 @@
 name: Emergency review bypass
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - labeled
 
@@ -23,5 +23,3 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pull-request-number: ${{ github.event.inputs.pullRequestNumber }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
