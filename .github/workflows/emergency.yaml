@@ -2,6 +2,8 @@ name: Emergency review bypass
 
 on:
   pull_request_target:
+    types:
+      - labeled
 
 permissions:
   pull-requests: write
@@ -20,4 +22,3 @@ jobs:
         uses: hmarr/auto-approve-action@f0939ea97e9205ef24d872e76833fa908a770363
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          pull-request-number: ${{ github.event.inputs.pullRequestNumber }}
