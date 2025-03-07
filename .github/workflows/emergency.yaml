@@ -1,13 +1,17 @@
 name: Emergency review bypass
+
 on:
   pull_request:
     types:
       - labeled
+
 permissions:
   pull-requests: write
+
 jobs:
   approve:
     name: Approve
     if: github.event.label.name == 'emergency'
-    uses: ./.github/workflows/actions/emergency-action
-    secrets: inherit
+    steps:
+      - name: Approve
+        uses: ./.github/workflows/actions/emergency-action
