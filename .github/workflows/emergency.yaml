@@ -12,6 +12,8 @@ jobs:
   approve:
     name: Approve
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     if: github.event.label.name == 'emergency'
     steps:
       - name: Checkout branch
