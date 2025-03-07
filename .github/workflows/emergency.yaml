@@ -3,7 +3,6 @@ name: Emergency review bypass
 on:
   pull_request:
     types:
-      - synchronize
       - labeled
 
 permissions:
@@ -22,4 +21,4 @@ jobs:
       - name: Approve
         uses: hmarr/auto-approve-action@f0939ea97e9205ef24d872e76833fa908a770363
         with:
-          github-token: ${{ secrets.GH_BOT_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
