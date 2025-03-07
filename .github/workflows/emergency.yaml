@@ -1,0 +1,13 @@
+name: Emergency review bypass
+on:
+  pull_request:
+    types:
+      - labeled
+permissions:
+  pull-requests: write
+jobs:
+  approve:
+    name: Approve
+    if: github.event.label.name == 'Emergency Review'
+    uses: ./.github/actions/emergency-action.yaml
+    secrets: inherit
