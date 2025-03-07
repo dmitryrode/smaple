@@ -1,0 +1,10 @@
+name: Bypass review in case of emergency
+
+runs:
+  using: composite
+  steps:
+    - name: approve pull request
+      uses: hmarr/auto-approve-action@f0939ea97e9205ef24d872e76833fa908a770363
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        pull-request-number: ${{ github.event.inputs.pullRequestNumber }}
