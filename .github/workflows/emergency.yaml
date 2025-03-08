@@ -12,6 +12,7 @@ jobs:
   approve:
     name: Approve
     runs-on: ubuntu-latest
+    if: github.event.label.name == 'emergency'
     permissions:
       pull-requests: write
     steps:
@@ -22,6 +23,7 @@ jobs:
         uses: hmarr/auto-approve-action@f0939ea97e9205ef24d872e76833fa908a770363
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          
   automerge:
     runs-on: ubuntu-latest
     permissions:
@@ -33,3 +35,6 @@ jobs:
         uses: "pascalgn/automerge-action@v0.16.4"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "emergency"
+          MERGE_REMOVE_LABELS: "emergency"
+          MERGE_METHOD: "squash"
